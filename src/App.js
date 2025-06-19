@@ -14,6 +14,7 @@ import { PageProducts } from "./features/PageProducts";
 import { PageAbout } from "./features/PageAbout";
 import { PageContact } from "./features/PageContact";
 import { Header } from "./common/Header";
+import { LoginPage } from "./features/LoginPage";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           <Route path={toContact()} element={<Page body={<PageContact />} />} />
           <Route
             path={toLogin()}
-            element={<Page body={<div>Login Page</div>} />}
+            element={<Page body={<LoginPage/>} />}
           />
           <Route
             path={toRegister()}
