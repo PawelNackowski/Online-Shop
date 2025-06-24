@@ -6,11 +6,10 @@ import { toAbout } from "../../common/Header/Navigation/routes";
 import { useAuth } from "../../AuthContext";
 
 export const LoginPage = () => {
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { setUser } = useAuth()
+  const { setUser } = useAuth();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -19,18 +18,20 @@ export const LoginPage = () => {
   };
 
   const login = (username, password) => {
-    const user = users.find(user => user.username === username && user.password === password);
+    const user = users.find(
+      (user) =>
+        (user.username === username) | (user.nickname === username) &&
+        user.password === password
+    );
 
     if (user) {
       setUser(user);
       alert(`Welcome ${user.nickname}!`);
-      navigate(toAbout())
+      navigate(toAbout());
     } else {
       alert("Invalid username or password");
-   };
     }
-
-
+  };
 
   return (
     <Wrapper>
@@ -38,13 +39,27 @@ export const LoginPage = () => {
       <p>Please enter your credentials to log in.</p>
       <StyledForm onSubmit={onFormSubmit}>
         <WrapperForm>
-          <label>E-mail</label>
-          <input type="mail" name="username" value={username} onChange={({target}) => setUsername(target.value)} placeholder="Enter your username" required />
+          <label>Username or E-mail</label>
+          <input
+            type="mail"
+            name="username"
+            value={username}
+            onChange={({ target }) => setUsername(target.value)}
+            placeholder="username or email"
+            required
+          />
           <label>Password</label>
-          <input type="password" name="password" value={password} onChange={({target}) => setPassword(target.value)} placeholder="Enter your password" required />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
+            placeholder="your password"
+            required
+          />
           <button type="submit">Login</button>
         </WrapperForm>
       </StyledForm>
     </Wrapper>
   );
-}
+};
