@@ -3,12 +3,14 @@ import { StyledForm, Wrapper, WrapperForm } from "./styled";
 import { users } from "./users";
 import { useNavigate } from "react-router-dom";
 import { toAbout } from "../../common/Header/Navigation/routes";
+import { useAuth } from "../../AuthContext";
 
 export const LoginPage = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setUser } = useAuth()
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +22,7 @@ export const LoginPage = () => {
     const user = users.find(user => user.username === username && user.password === password);
 
     if (user) {
+      setUser(user);
       alert(`Welcome ${user.nickname}!`);
       navigate(toAbout())
     } else {
