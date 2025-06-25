@@ -1,26 +1,31 @@
 import { useState } from "react";
-import { StyledForm, Wrapper, WrapperForm } from "./styled";
+import { Icon, StyledButton, StyledForm, StyledHeader, StyledIcon, StyledInput, StyledLabel, StyledLink, Wrapper, WrapperForm } from "./styled";
 import { users } from "./users";
-import { useNavigate } from "react-router-dom";
-import { toAbout } from "../../common/Header/Navigation/routes";
+import { redirect, useNavigate } from "react-router-dom";
+import { toAbout, toRegister } from "../../common/Header/Navigation/routes";
 import { useAuth } from "../../AuthContext";
 
 export const LoginPage = () => {
-  const [username, setUsername] = useState("");
+  const [usermail, setusermail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { setUser } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     console.log("Form submitted");
-    login(username, password);
+    login(usermail, password);
   };
 
-  const login = (username, password) => {
+  const login = (usermail, password) => {
     const user = users.find(
       (user) =>
-        (user.username === username) | (user.nickname === username) &&
+        (user.usermail === usermail) | (user.nickname === usermail) &&
         user.password === password
     );
 
@@ -29,36 +34,40 @@ export const LoginPage = () => {
       alert(`Welcome ${user.nickname}!`);
       navigate(toAbout());
     } else {
-      alert("Invalid username or password");
+      alert("Invalid user or password");
     }
   };
 
   return (
     <Wrapper>
-      <h1>Login Page</h1>
-      <p>Please enter your credentials to log in.</p>
+      <StyledHeader>Login</StyledHeader>
       <StyledForm onSubmit={onFormSubmit}>
         <WrapperForm>
-          <label>Username or E-mail</label>
-          <input
-            type="mail"
-            name="username"
-            value={username}
-            onChange={({ target }) => setUsername(target.value)}
-            placeholder="username or email"
+          <StyledLabel>usermail or E-mail</StyledLabel>
+          <StyledInput
+            type="text"
+            name="usermail"
+            value={usermail}
+            onChange={({ target }) => setusermail(target.value)}
+            placeholder="usermail or email"
             required
           />
-          <label>Password</label>
-          <input
-            type="password"
+          <StyledLabel>Password</StyledLabel>
+          <StyledInput
+            type={showPassword ? " text" : "password"}
             name="password"
             value={password}
             onChange={({ target }) => setPassword(target.value)}
-            placeholder="your password"
+            placeholder="password"
             required
-          />
-          <button type="submit">Login</button>
+            />
+            <Icon onClick={togglePasswordVisibility}>{showPassword? "hide" : "show"}</Icon>
+          <StyledButton 
+            type="submit"
+            disabled={!usermail || !password}>
+            Login</StyledButton>
         </WrapperForm>
+        Already have an account? <StyledLink to={toRegister()}>Register</StyledLink>
       </StyledForm>
     </Wrapper>
   );
