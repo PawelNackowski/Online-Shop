@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         text-align: center;
+        font-family: 'Open Sans', sans-serif;
         color: white;
         background: #050069;
         background: linear-gradient(0deg, rgb(4, 0, 74) 0%, rgba(1, 1, 140, 1) 61%, rgb(0, 121, 145) 100%);
