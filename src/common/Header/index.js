@@ -1,10 +1,10 @@
-import { LoginButton } from "./LoginButton";
+import { HeaderLink } from "./HeaderLink";
 import { Navigation } from "./Navigation";
 
 export const Header = () => {
   return (
     <>
-      <LoginButton />
+      <HeaderLink />
       <Navigation />
     </>
   );
