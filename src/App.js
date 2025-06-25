@@ -15,7 +15,7 @@ import { PageAbout } from "./features/PageAbout";
 import { PageContact } from "./features/PageContact";
 import { Header } from "./common/Header";
 import { LoginPage } from "./features/LoginPage";
-import { PageRegister } from "./features/RegisterPage/styled";
+import { PageRegister } from "./features/RegisterPage/index";
 
 function App() {
   return (
