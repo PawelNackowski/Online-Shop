@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Icon, StyledButton, StyledForm, StyledHeader, StyledIcon, StyledInput, StyledLabel, StyledLink, Wrapper, WrapperForm } from "./styled";
+import { Icon, StyledButton, StyledForm, StyledHeader, StyledInput, StyledLabel, StyledLink, Wrapper, WrapperForm } from "./styled";
 import { users } from "./users";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toAbout, toRegister } from "../../common/Header/Navigation/routes";
 import { useAuth } from "../../AuthContext";
 
