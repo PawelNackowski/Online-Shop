@@ -15,6 +15,7 @@ import { PageAbout } from "./features/PageAbout";
 import { PageContact } from "./features/PageContact";
 import { Header } from "./common/Header";
 import { LoginPage } from "./features/LoginPage";
+import { PageRegister } from "./features/RegisterPage/styled";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
           />
           <Route
             path={toRegister()}
-            element={<Page body={<div>Register Page</div>} />}
+            element={<Page body={<PageRegister/>} />}
           />
           <Route
             path={toProductDetails(":productId")}
