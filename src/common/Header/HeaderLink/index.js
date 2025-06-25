@@ -1,7 +1,8 @@
 import { useAuth } from "../../../AuthContext";
+import { toLogin, toRegister } from "../Navigation/routes";
 import { StyledLink, StyledList, StyledNavigation } from "./styled";
 
-export const LoginButton = () => {
+export const HeaderLink = () => {
   const { user, setUser } = useAuth();
 
   const handleLogout = () => {
@@ -20,11 +21,11 @@ export const LoginButton = () => {
         ) : (
           <>
             <li>
-              <StyledLink to="/login">Login</StyledLink>
+              <StyledLink to={toLogin()}>Login</StyledLink>
             </li>
             /
             <li>
-              <StyledLink to="/register">Register</StyledLink>
+              <StyledLink to={toRegister()}>Register</StyledLink>
             </li>
           </>
         )}
