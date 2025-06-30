@@ -7,11 +7,10 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 20px;
-  margin-bottom: 20px;
   background-color: rgb(240, 240, 240);
   color: rgb(48, 48, 48);
   width: 100%;
-  max-width: 440px;
+  max-width: 400px;
   border-radius: 8px;
 `;
 
@@ -37,7 +36,7 @@ export const WrapperForm = styled.div`
 export const StyledLabel = styled.label`
   text-align: left;
   font-weight: bold;
-  margin-bottom: 5px;
+  width: 100%;
 `;
 
 export const StyledInput = styled.input`
@@ -49,11 +48,25 @@ export const StyledInput = styled.input`
   background-color: rgb(230, 230, 230);
   &:focus {
     border: 2px solid #007bff;
-    outline: #007bff;
+    outline: none;
   }
   &::placeholder {
     color: rgb(170, 170, 170);
   }
+`;
+
+export const WrapperInform = styled.div`
+  height: 22px;
+  `;
+
+export const StyledError = styled.span`
+  color: red;
+  font-size: 14px;
+`;
+
+export const StyledSuccess = styled.span`
+  color: green;
+  font-size: 14px;
 `;
 
 export const StyledButton = styled.button`
