@@ -7,16 +7,17 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color:rgb(240, 240, 240);
-  color:rgb(48, 48, 48);
+  margin-bottom: 20px;
+  background-color: rgb(240, 240, 240);
+  color: rgb(48, 48, 48);
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
   border-radius: 8px;
-  `;
+`;
 
 export const StyledHeader = styled.h1`
   display: flex;
-  `;
+`;
 
 export const StyledForm = styled.form`
   display: flex;
@@ -42,16 +43,16 @@ export const StyledLabel = styled.label`
 export const StyledInput = styled.input`
   padding: 12px;
   border-radius: 4px;
-  border: none;
+  border: 2px solid transparent;
   width: 100%;
   box-sizing: border-box;
-  background-color:rgb(230, 230, 230);
+  background-color: rgb(230, 230, 230);
   &:focus {
     border: 2px solid #007bff;
     outline: #007bff;
   }
   &::placeholder {
-    color:rgb(170, 170, 170);
+    color: rgb(170, 170, 170);
   }
 `;
 
@@ -68,7 +69,7 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: #0056b3;
   }
-    &:disabled {
+  &:disabled {
     background-color: #ccc;
     cursor: not-allowed;
   }
@@ -76,7 +77,7 @@ export const StyledButton = styled.button`
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
-  color:rgb(0, 98, 203);
+  color: rgb(0, 98, 203);
   font-weight: bold;
   &:hover {
     text-decoration: underline;
@@ -89,7 +90,6 @@ export const Icon = styled.span`
   height: 24px;
   right: -80%;
   top: -44px;
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   cursor: pointer;
-  
-  `
+`;
