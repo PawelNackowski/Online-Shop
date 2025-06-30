@@ -6,7 +6,7 @@ import { toAbout, toRegister } from "../../common/Header/Navigation/routes";
 import { useAuth } from "../../AuthContext";
 
 export const LoginPage = () => {
-  const [usermail, setusermail] = useState("");
+  const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { setUser } = useAuth();
@@ -19,13 +19,13 @@ export const LoginPage = () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     console.log("Form submitted");
-    login(usermail, password);
+    login(mail, password);
   };
 
-  const login = (usermail, password) => {
+  const login = (mail, password) => {
     const user = users.find(
       (user) =>
-        (user.usermail === usermail) | (user.nickname === usermail) &&
+        (user.mail === mail) | (user.nickname === mail) &&
         user.password === password
     );
 
@@ -43,13 +43,13 @@ export const LoginPage = () => {
       <StyledHeader>Login</StyledHeader>
       <StyledForm onSubmit={onFormSubmit}>
         <WrapperForm>
-          <StyledLabel>usermail or E-mail</StyledLabel>
+          <StyledLabel>mail or E-mail</StyledLabel>
           <StyledInput
             type="text"
-            name="usermail"
-            value={usermail}
-            onChange={({ target }) => setusermail(target.value)}
-            placeholder="usermail or email"
+            name="mail"
+            value={mail}
+            onChange={({ target }) => setMail(target.value)}
+            placeholder="mail or email"
             required
           />
           <StyledLabel>Password</StyledLabel>
@@ -64,7 +64,7 @@ export const LoginPage = () => {
             <Icon onClick={togglePasswordVisibility}>{showPassword? "hide" : "show"}</Icon>
           <StyledButton 
             type="submit"
-            disabled={!usermail || !password}>
+            disabled={!mail || !password}>
             Login</StyledButton>
         </WrapperForm>
         Already have an account? <StyledLink to={toRegister()}>Register</StyledLink>
