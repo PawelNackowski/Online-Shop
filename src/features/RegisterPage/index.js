@@ -11,17 +11,22 @@ import {
   WrapperForm,
   WrapperInform,
 } from "../RegisterPage/styled";
+import { useNavigate } from "react-router-dom";
+import { toLogin } from "../../common/Header/Navigation/routes";
 
 export const PageRegister = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     SaveUserData();
     console.log("Form submitted");
+    alert("Register successful!, you can now log in.");
+    navigate(toLogin())
   };
 
   const SaveUserData = () => {
