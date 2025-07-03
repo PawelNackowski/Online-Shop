@@ -4,7 +4,6 @@ import { StyledLink, StyledList, StyledNavigation } from "./styled";
 
 export const HeaderLink = () => {
   const { user, setUser } = useAuth();
-
   const handleLogout = () => {
     setUser(null);
     alert("You have been logged out.");
@@ -15,7 +14,7 @@ export const HeaderLink = () => {
       <StyledList>
         {user ? (
           <>
-            <li>Hello {user.nickname}</li>
+            <li>Hello {user.username || user.nickname}</li>
             <StyledLink onClick={handleLogout}>Logout</StyledLink>
           </>
         ) : (
