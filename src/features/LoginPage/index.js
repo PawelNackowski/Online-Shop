@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  Icon,
   StyledButton,
   StyledForm,
   StyledHeader,
@@ -10,31 +9,20 @@ import {
   Wrapper,
   WrapperForm,
 } from "./styled";
+import { Icon } from "../styled";
 import { users } from "./users";
 import { useNavigate } from "react-router-dom";
 import { toAbout, toRegister } from "../../common/Header/Navigation/routes";
 import { useAuth } from "../../AuthContext";
+import { StyledIconHidden, StyledIconShow } from "../HiddenShowPasswordIcon/style";
+import { useTogglePasswordVisibility } from "../useTogglePasswordVisibility";
 
 export const LoginPage = () => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { setUser } = useAuth();
-  const [showPassword, setShowPassword] = useState(false);
-
-  useEffect(() => {
-    const LoadUserData = () => {
-      const userData = localStorage.getItem("user");
-      if (userData) {
-        const user = JSON.parse(userData);
-      }
-    };
-    LoadUserData();
-  }, []);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
-  };
+  const { showPassword, togglePasswordVisibility } = useTogglePasswordVisibility();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -97,7 +85,7 @@ export const LoginPage = () => {
             required
           />
           <Icon onClick={togglePasswordVisibility}>
-            {showPassword ? "hide" : "show"}
+            {showPassword ? <StyledIconShow/> : <StyledIconHidden/>}
           </Icon>
           <StyledButton type="submit" disabled={!mail || !password}>
             Login
