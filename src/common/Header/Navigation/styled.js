@@ -7,8 +7,8 @@ export const StyledList = styled.ul`
   align-items: center;
   margin: 20px auto;
   padding: 10px 20px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-top: 1px solid ${({theme}) => theme.colors.gray};
+  border-bottom: 1px solid ${({theme}) => theme.colors.gray};
   max-width: 1000px;
   width: 100%;
 `;
@@ -20,9 +20,9 @@ export const ListItem = styled.li`
 
 export const Link = styled(NavLink)`
   text-decoration: none;
-  color: white;
+  color: ${({theme}) => theme.colors.dark};
 
   &.active {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid ${({theme}) => theme.colors.darkGray};
   }
 `;

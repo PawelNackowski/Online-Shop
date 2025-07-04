@@ -14,7 +14,7 @@ export const StyledList = styled.ul`
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
-  color: white;
+  color: ${({theme}) => theme.colors.dark};
   padding: 10px;
 
   &.active {

@@ -13,9 +13,9 @@ const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
-        color: black;
+        color: ${({theme}) => theme.colors.dark};
         background-repeat: no-repeat;
-        background: linear-gradient(0deg, rgb(81, 81, 81) 0%, rgb(133, 133, 133) 61%, rgb(63, 64, 69) 100%);
+        background: ${({theme}) => theme.colors.light};
     }
 `;
 export default GlobalStyle;

@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -7,8 +6,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: rgb(240, 240, 240);
-  color: rgb(48, 48, 48);
+  background-color: ${({ theme }) => theme.colors.veryLightGray};
   width: 100%;
   max-width: 440px;
   border-radius: 8px;
@@ -17,7 +15,7 @@ export const Wrapper = styled.div`
 export const StyledHeader = styled.h1`
   text-align: center;
   font-size: 28px;
-  margin: 6px ;
+  margin: 6px;
 `;
 
 export const StyledForm = styled.form`
@@ -47,27 +45,29 @@ export const StyledInput = styled.input`
   border: 2px solid transparent;
   width: 100%;
   box-sizing: border-box;
-  background-color: rgb(230, 230, 230);
+  background-color: ${({ theme }) => theme.colors.lightGray};
   &:focus {
-    border: 2px solid #007bff;
+    border: 2px solid ${({ theme }) => theme.colors.blue};
     outline: none;
   }
   &::placeholder {
-    color: rgb(170, 170, 170);
+    color: ${({ theme }) => theme.colors.darkGray};
   }
 `;
 
 export const WrapperInform = styled.div`
   height: 22px;
-  `;
+  font-weight: 600;
+  font-style: italic;
+`;
 
 export const StyledError = styled.span`
-  color: red;
+  color: ${({ theme }) => theme.colors.red};
   font-size: 14px;
 `;
 
 export const StyledSuccess = styled.span`
-  color: green;
+  color: ${({ theme }) => theme.colors.green};
   font-size: 14px;
 `;
 
@@ -76,26 +76,17 @@ export const StyledButton = styled.button`
   width: 100%;
   font-size: 16px;
   font-weight: bold;
-  background-color: #007bff;
-  color: white;
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.light};
   border: none;
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    background-color: #0056b3;
+    background-color: ${({ theme }) => theme.colors.blueDark};
   }
   &:disabled {
-    background-color: #ccc;
+    background-color: ${({ theme }) => theme.colors.darkGray};
     cursor: not-allowed;
-  }
-`;
-
-export const StyledLink = styled(NavLink)`
-  text-decoration: none;
-  color: rgb(0, 98, 203);
-  font-weight: bold;
-  &:hover {
-    text-decoration: underline;
   }
 `;
 
@@ -105,6 +96,5 @@ export const Icon = styled.span`
   height: 24px;
   right: -80%;
   top: -44px;
-  color: rgb(0, 0, 0);
   cursor: pointer;
 `;
