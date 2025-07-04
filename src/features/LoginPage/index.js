@@ -27,7 +27,6 @@ export const LoginPage = () => {
       const userData = localStorage.getItem("user");
       if (userData) {
         const user = JSON.parse(userData);
-        console.log("User data loaded from localStorage:", user);
       }
     };
     LoadUserData();
@@ -39,34 +38,21 @@ export const LoginPage = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted");
     login(mail, password);
   };
 
   const login = (mail, password) => {
-
-    console.log("=== LOGIN DEBUG ===");
-    console.log("Input mail:", mail);
-    console.log("Input password:", password);
-
     const userData = localStorage.getItem("user");
     let storedUser = null;
     if (userData) {
       storedUser = JSON.parse(userData);
-
-      console.log("Parsed storedUser:", storedUser);
-      console.log("storedUser.mail:", storedUser.mail);
-      console.log("storedUser.nickname:", storedUser.username);
-      console.log("storedUser.password:", storedUser.password);
     }
     if (
       storedUser &&
       (storedUser.email === mail || storedUser.username === mail) &&
       storedUser.password === password
     ) {
-      console.log("User found in localStorage:", storedUser);
       setUser(storedUser);
-      alert(`Welcome back ${storedUser.nickname}!`);
       navigate(toAbout());
       return;
     }
@@ -81,8 +67,6 @@ export const LoginPage = () => {
     if (user) {
       setUser(user);
       localStorage.setItem("user", JSON.stringify(user));
-      console.log("User logged in:", user);
-      alert(`Welcome ${user.nickname}!`);
       navigate(toAbout());
     } else {
       alert("Invalid user or password");
