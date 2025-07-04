@@ -13,10 +13,9 @@ const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
-        color: white;
+        color: black;
         background-repeat: no-repeat;
-        background: #050069;
-        background: linear-gradient(0deg, rgb(4, 0, 74) 0%, rgba(1, 1, 140, 1) 61%, rgb(0, 121, 145) 100%);
+        background: linear-gradient(0deg, rgb(81, 81, 81) 0%, rgb(133, 133, 133) 61%, rgb(63, 64, 69) 100%);
     }
 `;
 export default GlobalStyle;
