@@ -11,16 +11,38 @@ import {
   WrapperForm,
   WrapperInform,
 } from "../RegisterPage/styled";
+import { useNavigate } from "react-router-dom";
+import { toLogin } from "../../common/Header/Navigation/routes";
+import { useTogglePasswordVisibility } from "../useTogglePasswordVisibility";
+import { Icon } from "../styled";
+import {
+  StyledIconHidden,
+  StyledIconShow,
+} from "../HiddenShowPasswordIcon/style";
 
 export const PageRegister = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const { showPassword, togglePasswordVisibility } =
+    useTogglePasswordVisibility();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted");
+    SaveUserData();
+    alert("Register successful!, you can now log in.");
+    navigate(toLogin());
+  };
+
+  const SaveUserData = () => {
+    const userData = {
+      username,
+      email,
+      password,
+    };
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
   return (
@@ -49,14 +71,17 @@ export const PageRegister = () => {
         <WrapperForm>
           <StyledLabel>Password</StyledLabel>
           <StyledInput
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={password}
             onChange={({ target }) => setPassword(target.value)}
             placeholder="Enter your password"
           />
+          <Icon onClick={togglePasswordVisibility}>
+            {showPassword ? <StyledIconShow /> : <StyledIconHidden />}
+          </Icon>
           <StyledLabel>Confirm password</StyledLabel>
           <StyledInput
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={confirmPassword}
             onChange={({ target }) => setConfirmPassword(target.value)}
             placeholder="Confirm your password"

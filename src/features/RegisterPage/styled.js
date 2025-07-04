@@ -10,12 +10,14 @@ export const Wrapper = styled.div`
   background-color: rgb(240, 240, 240);
   color: rgb(48, 48, 48);
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
   border-radius: 8px;
 `;
 
 export const StyledHeader = styled.h1`
-  display: flex;
+  text-align: center;
+  font-size: 28px;
+  margin: 6px ;
 `;
 
 export const StyledForm = styled.form`
