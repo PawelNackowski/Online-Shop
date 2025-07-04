@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
   justify-content: center;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: rgb(240, 240, 240);
-  color: rgb(48, 48, 48);
+  background-color: ${({theme}) => theme.colors.veryLightGray};
+  color: ${({theme}) => theme.colors.dark};
   width: 100%;
   max-width: 440px;
   border-radius: 8px;
@@ -46,13 +46,15 @@ export const StyledInput = styled.input`
   border: 2px solid transparent;
   width: 100%;
   box-sizing: border-box;
-  background-color: rgb(230, 230, 230);
+  background-color: ${({theme}) => theme.colors.lightGray};
   &:focus {
-    border: 2px solid #007bff;
-    outline: #007bff;
+    border: 2px solid ${({theme}) => theme.colors.blue};
+    outline: ${({theme}) => theme.colors.blue};
   }
   &::placeholder {
-    color: rgb(170, 170, 170);
+    color: ${({theme}) => theme.colors.darkGray};
+    font-style: italic;
+    font-style: bold;
   }
 `;
 
@@ -61,23 +63,23 @@ export const StyledButton = styled.button`
   width: 100%;
   font-size: 16px;
   font-weight: bold;
-  background-color: #007bff;
-  color: white;
+  background-color: ${({theme}) => theme.colors.blue};
+  color: ${({theme}) => theme.colors.light};
   border: none;
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    background-color: #0056b3;
+    background-color: ${({theme}) => theme.colors.blueDark};
   }
   &:disabled {
-    background-color: #ccc;
+    background-color: ${({theme}) => theme.colors.darkGray};
     cursor: not-allowed;
   }
 `;
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
-  color: rgb(0, 98, 203);
+  color:${({ theme }) => theme.colors.blueDark};
   font-weight: bold;
   &:hover {
     text-decoration: underline;
