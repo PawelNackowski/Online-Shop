@@ -24,9 +24,8 @@ export const PageRegister = () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     SaveUserData();
-    console.log("Form submitted");
     alert("Register successful!, you can now log in.");
-    navigate(toLogin())
+    navigate(toLogin());
   };
 
   const SaveUserData = () => {
@@ -36,8 +35,7 @@ export const PageRegister = () => {
       password,
     };
     localStorage.setItem("user", JSON.stringify(userData));
-    console.log("User data saved:", userData);
-  }
+  };
 
   return (
     <Wrapper>
