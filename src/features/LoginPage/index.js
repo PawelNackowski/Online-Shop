@@ -12,7 +12,7 @@ import {
 import { Icon } from "../styled";
 import { users } from "./users";
 import { useNavigate } from "react-router-dom";
-import { toAbout, toRegister } from "../../common/Header/Navigation/routes";
+import { toAbout, toRegister } from "../../namePlate";
 import { useAuth } from "../../AuthContext";
 import { StyledIconHidden, StyledIconShow } from "../HiddenShowPasswordIcon/style";
 import { useTogglePasswordVisibility } from "../useTogglePasswordVisibility";

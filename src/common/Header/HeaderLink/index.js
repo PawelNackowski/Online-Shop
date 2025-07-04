@@ -1,5 +1,5 @@
 import { useAuth } from "../../../AuthContext";
-import { toLogin, toRegister } from "../Navigation/routes";
+import { toLogin, toRegister } from "../../../namePlate";
 import { StyledLink, StyledList, StyledNavigation } from "./styled";
 
 export const HeaderLink = () => {
