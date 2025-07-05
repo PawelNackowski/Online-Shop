@@ -12,7 +12,7 @@ import {
   WrapperInform,
 } from "../RegisterPage/styled";
 import { useNavigate } from "react-router-dom";
-import { toLogin } from "../../common/Header/Navigation/routes";
+import { toLogin } from "../../namePlate";
 import { useTogglePasswordVisibility } from "../useTogglePasswordVisibility";
 import { Icon } from "../styled";
 import {

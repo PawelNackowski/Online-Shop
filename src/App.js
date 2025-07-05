@@ -7,7 +7,7 @@ import {
   toProductDetails,
   toProducts,
   toRegister,
-} from "./common/Header/Navigation/routes";
+} from "./namePlate";
 import { Page } from "./common/Page";
 import { PageHome } from "./features/PageHome";
 import { PageProducts } from "./features/PageProducts";
