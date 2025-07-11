@@ -1,11 +1,14 @@
 import { HeaderLink } from "./HeaderLink";
-import { Navigation } from "./Navigation";
+import { Logo, Wrapper } from "./style";
 
 export const Header = () => {
   return (
     <>
-      <HeaderLink />
-      <Navigation />
+      <Wrapper>
+        Menu
+        <Logo />
+        <HeaderLink />
+      </Wrapper>
     </>
   );
 };
