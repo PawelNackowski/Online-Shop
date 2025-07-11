@@ -1,18 +1,16 @@
 import { socials } from "./socials";
-import { IconLink, StyledList } from "./styled";
+import { StyledList } from "./styled";
 
 export const HeaderLink = () => {
   return (
     <StyledList>
-      {socials.map(({ name, to, Icon }) => (
-        <IconLink
-          key={name}
-          href={to}
-          title={name}
-          rel="noopener noreferrer"
-        >
-          <Icon />
-        </IconLink>
+      {socials.map(({ name, to, Icon, iconProps }) => (
+        <a 
+          key={name} 
+          href={to} 
+          title={name}>
+            <Icon {...iconProps} />
+        </a>
       ))}
     </StyledList>
   );
